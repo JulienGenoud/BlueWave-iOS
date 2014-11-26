@@ -163,6 +163,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    [self.navigationController pushViewController:nextView animated:YES];
+}
+
 #pragma mark - Memory
 
 - (void)didReceiveMemoryWarning {

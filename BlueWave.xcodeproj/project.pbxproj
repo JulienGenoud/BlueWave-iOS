@@ -13,6 +13,7 @@
 		292AB2631A08BF06003BBFBB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 292AB2621A08BF06003BBFBB /* libsqlite3.dylib */; };
 		292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB2711A094B08003BBFBB /* SQLiteManager.m */; };
 		29385EA21A00FDDD00CBC9F9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */; };
+		293EC2D71A264A8800B4840E /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293EC2D61A264A8800B4840E /* DetailsViewController.m */; };
 		2995287D1A01629E00987C45 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995287C1A01629E00987C45 /* LocalData.m */; };
 		29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BBAE421A12186E008BEBBA /* BeaconItem.m */; };
 		29D3E0961A0129D8009F9EEA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0911A0129D8009F9EEA /* HistoryViewController.m */; };
@@ -49,6 +50,8 @@
 		292AB2701A094B08003BBFBB /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteManager.h; path = Libraries/SQLiteManager/SQLiteManager.h; sourceTree = "<group>"; };
 		292AB2711A094B08003BBFBB /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteManager.m; path = Libraries/SQLiteManager/SQLiteManager.m; sourceTree = "<group>"; };
 		29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		293EC2D51A264A8800B4840E /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		293EC2D61A264A8800B4840E /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2995287B1A01629E00987C45 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalData.h; path = Classes/Models/LocalData.h; sourceTree = "<group>"; };
 		2995287C1A01629E00987C45 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalData.m; path = Classes/Models/LocalData.m; sourceTree = "<group>"; };
 		29AD68C119FFDA9400A591E4 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				29D3E0931A0129D8009F9EEA /* ProximityViewController.m */,
 				29D3E0941A0129D8009F9EEA /* SettingsViewController.h */,
 				29D3E0951A0129D8009F9EEA /* SettingsViewController.m */,
+				293EC2D51A264A8800B4840E /* DetailsViewController.h */,
+				293EC2D61A264A8800B4840E /* DetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				292AB25F1A07F2C8003BBFBB /* CJSONDeserializer.m in Sources */,
 				292AB2611A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m in Sources */,
 				29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */,
+				293EC2D71A264A8800B4840E /* DetailsViewController.m in Sources */,
 				29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */,
 				292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */,
 				29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */,
