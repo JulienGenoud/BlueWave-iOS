@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		292AB25F1A07F2C8003BBFBB /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB2591A07F2C8003BBFBB /* CJSONDeserializer.m */; };
+		292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB25B1A07F2C8003BBFBB /* CJSONSerializer.m */; };
+		292AB2611A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB25E1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m */; };
+		292AB2631A08BF06003BBFBB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 292AB2621A08BF06003BBFBB /* libsqlite3.dylib */; };
+		292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB2711A094B08003BBFBB /* SQLiteManager.m */; };
+		29385EA21A00FDDD00CBC9F9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */; };
+		2995287D1A01629E00987C45 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995287C1A01629E00987C45 /* LocalData.m */; };
+		29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BBAE421A12186E008BEBBA /* BeaconItem.m */; };
+		29D3E0961A0129D8009F9EEA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0911A0129D8009F9EEA /* HistoryViewController.m */; };
+		29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0931A0129D8009F9EEA /* ProximityViewController.m */; };
+		29D3E0981A0129D8009F9EEA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0951A0129D8009F9EEA /* SettingsViewController.m */; };
+		29D4272519FEAE2D00B235A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4272419FEAE2D00B235A3 /* main.m */; };
+		29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4272719FEAE2D00B235A3 /* AppDelegate.m */; };
+		29D4273119FEAE2D00B235A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4272F19FEAE2D00B235A3 /* Main.storyboard */; };
+		29D4273319FEAE2D00B235A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273219FEAE2D00B235A3 /* Images.xcassets */; };
+		29D4273619FEAE2D00B235A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */; };
+		29D4274219FEAE2D00B235A3 /* BlueWaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */; };
+		A3575B4777B694EE57788C92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		29D4273C19FEAE2D00B235A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D4271719FEAE2D00B235A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29D4271E19FEAE2D00B235A3;
+			remoteInfo = BlueWave;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		292AB2581A07F2C8003BBFBB /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = Libraries/TouchJSON/CJSONDeserializer.h; sourceTree = "<group>"; };
+		292AB2591A07F2C8003BBFBB /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDeserializer.m; path = Libraries/TouchJSON/CJSONDeserializer.m; sourceTree = "<group>"; };
+		292AB25A1A07F2C8003BBFBB /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONSerializer.h; path = Libraries/TouchJSON/CJSONSerializer.h; sourceTree = "<group>"; };
+		292AB25B1A07F2C8003BBFBB /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONSerializer.m; path = Libraries/TouchJSON/CJSONSerializer.m; sourceTree = "<group>"; };
+		292AB25C1A07F2C8003BBFBB /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONRepresentation.h; path = Libraries/TouchJSON/JSONRepresentation.h; sourceTree = "<group>"; };
+		292AB25D1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionary_JSONExtensions.h; path = Libraries/TouchJSON/NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		292AB25E1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionary_JSONExtensions.m; path = Libraries/TouchJSON/NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		292AB2621A08BF06003BBFBB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		292AB2701A094B08003BBFBB /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteManager.h; path = Libraries/SQLiteManager/SQLiteManager.h; sourceTree = "<group>"; };
+		292AB2711A094B08003BBFBB /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteManager.m; path = Libraries/SQLiteManager/SQLiteManager.m; sourceTree = "<group>"; };
+		29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2995287B1A01629E00987C45 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalData.h; path = Classes/Models/LocalData.h; sourceTree = "<group>"; };
+		2995287C1A01629E00987C45 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalData.m; path = Classes/Models/LocalData.m; sourceTree = "<group>"; };
+		29AD68C119FFDA9400A591E4 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		29BBAE411A12186E008BEBBA /* BeaconItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconItem.h; path = Classes/Models/BeaconItem.h; sourceTree = "<group>"; };
+		29BBAE421A12186E008BEBBA /* BeaconItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconItem.m; path = Classes/Models/BeaconItem.m; sourceTree = "<group>"; };
+		29D3E0901A0129D8009F9EEA /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = Classes/Controllers/HistoryViewController.h; sourceTree = "<group>"; };
+		29D3E0911A0129D8009F9EEA /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = Classes/Controllers/HistoryViewController.m; sourceTree = "<group>"; };
+		29D3E0921A0129D8009F9EEA /* ProximityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProximityViewController.h; path = Classes/Controllers/ProximityViewController.h; sourceTree = "<group>"; };
+		29D3E0931A0129D8009F9EEA /* ProximityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProximityViewController.m; path = Classes/Controllers/ProximityViewController.m; sourceTree = "<group>"; };
+		29D3E0941A0129D8009F9EEA /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Classes/Controllers/SettingsViewController.h; sourceTree = "<group>"; };
+		29D3E0951A0129D8009F9EEA /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Classes/Controllers/SettingsViewController.m; sourceTree = "<group>"; };
+		29D4271F19FEAE2D00B235A3 /* BlueWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D4272319FEAE2D00B235A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29D4272419FEAE2D00B235A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29D4272619FEAE2D00B235A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		29D4272719FEAE2D00B235A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		29D4273019FEAE2D00B235A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29D4273219FEAE2D00B235A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		29D4273519FEAE2D00B235A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		29D4273B19FEAE2D00B235A3 /* BlueWaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueWaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D4274019FEAE2D00B235A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueWaveTests.m; sourceTree = "<group>"; };
+		58C1EAEEEF38BB483224BD3A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1736C59722BB8C23175760 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29D4271C19FEAE2D00B235A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292AB2631A08BF06003BBFBB /* libsqlite3.dylib in Frameworks */,
+				29385EA21A00FDDD00CBC9F9 /* CoreLocation.framework in Frameworks */,
+				A3575B4777B694EE57788C92 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29D4273819FEAE2D00B235A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EE592041DB398483B0E4D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				292AB2621A08BF06003BBFBB /* libsqlite3.dylib */,
+				5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		292AB2571A07F2AF003BBFBB /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				292AB2581A07F2C8003BBFBB /* CJSONDeserializer.h */,
+				292AB2591A07F2C8003BBFBB /* CJSONDeserializer.m */,
+				292AB25A1A07F2C8003BBFBB /* CJSONSerializer.h */,
+				292AB25B1A07F2C8003BBFBB /* CJSONSerializer.m */,
+				292AB25C1A07F2C8003BBFBB /* JSONRepresentation.h */,
+				292AB25D1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.h */,
+				292AB25E1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m */,
+			);
+			name = TouchJSON;
+			sourceTree = "<group>";
+		};
+		292AB2681A08E4EE003BBFBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		292AB26F1A094AF6003BBFBB /* SQLiteManager */ = {
+			isa = PBXGroup;
+			children = (
+				292AB2701A094B08003BBFBB /* SQLiteManager.h */,
+				292AB2711A094B08003BBFBB /* SQLiteManager.m */,
+			);
+			name = SQLiteManager;
+			sourceTree = "<group>";
+		};
+		29D3E08B1A012934009F9EEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				29D3E08E1A012957009F9EEA /* Helpers */,
+				29D3E08D1A01294D009F9EEA /* Models */,
+				29D3E08C1A012945009F9EEA /* Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		29D3E08C1A012945009F9EEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29D3E0901A0129D8009F9EEA /* HistoryViewController.h */,
+				29D3E0911A0129D8009F9EEA /* HistoryViewController.m */,
+				29D3E0921A0129D8009F9EEA /* ProximityViewController.h */,
+				29D3E0931A0129D8009F9EEA /* ProximityViewController.m */,
+				29D3E0941A0129D8009F9EEA /* SettingsViewController.h */,
+				29D3E0951A0129D8009F9EEA /* SettingsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		29D3E08D1A01294D009F9EEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29BBAE411A12186E008BEBBA /* BeaconItem.h */,
+				29BBAE421A12186E008BEBBA /* BeaconItem.m */,
+				2995287B1A01629E00987C45 /* LocalData.h */,
+				2995287C1A01629E00987C45 /* LocalData.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		29D3E08E1A012957009F9EEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		29D3E08F1A012961009F9EEA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				292AB26F1A094AF6003BBFBB /* SQLiteManager */,
+				292AB2571A07F2AF003BBFBB /* TouchJSON */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		29D4271619FEAE2D00B235A3 = {
+			isa = PBXGroup;
+			children = (
+				29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */,
+				29D4272119FEAE2D00B235A3 /* BlueWave */,
+				29D4273E19FEAE2D00B235A3 /* BlueWaveTests */,
+				29D4272019FEAE2D00B235A3 /* Products */,
+				62619226E1A136C62245D5D4 /* Pods */,
+				0EE592041DB398483B0E4D24 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		29D4272019FEAE2D00B235A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29D4271F19FEAE2D00B235A3 /* BlueWave.app */,
+				29D4273B19FEAE2D00B235A3 /* BlueWaveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29D4272119FEAE2D00B235A3 /* BlueWave */ = {
+			isa = PBXGroup;
+			children = (
+				29D4272619FEAE2D00B235A3 /* AppDelegate.h */,
+				29D4272719FEAE2D00B235A3 /* AppDelegate.m */,
+				29AD68C119FFDA9400A591E4 /* Define.h */,
+				29D4272F19FEAE2D00B235A3 /* Main.storyboard */,
+				29D4273219FEAE2D00B235A3 /* Images.xcassets */,
+				29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */,
+				29D3E08B1A012934009F9EEA /* Classes */,
+				29D3E08F1A012961009F9EEA /* Libraries */,
+				292AB2681A08E4EE003BBFBB /* Resources */,
+				29D4272219FEAE2D00B235A3 /* Supporting Files */,
+			);
+			path = BlueWave;
+			sourceTree = "<group>";
+		};
+		29D4272219FEAE2D00B235A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29D4272319FEAE2D00B235A3 /* Info.plist */,
+				29D4272419FEAE2D00B235A3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29D4273E19FEAE2D00B235A3 /* BlueWaveTests */ = {
+			isa = PBXGroup;
+			children = (
+				29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */,
+				29D4273F19FEAE2D00B235A3 /* Supporting Files */,
+			);
+			path = BlueWaveTests;
+			sourceTree = "<group>";
+		};
+		29D4273F19FEAE2D00B235A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29D4274019FEAE2D00B235A3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62619226E1A136C62245D5D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58C1EAEEEF38BB483224BD3A /* Pods.debug.xcconfig */,
+				7B1736C59722BB8C23175760 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29D4271E19FEAE2D00B235A3 /* BlueWave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29D4274519FEAE2D00B235A3 /* Build configuration list for PBXNativeTarget "BlueWave" */;
+			buildPhases = (
+				2EF287C53CDEB31481FA12C9 /* Check Pods Manifest.lock */,
+				29D4271B19FEAE2D00B235A3 /* Sources */,
+				29D4271C19FEAE2D00B235A3 /* Frameworks */,
+				29D4271D19FEAE2D00B235A3 /* Resources */,
+				8B6AB7687EEEB0BBF33A8F4C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueWave;
+			productName = BlueWave;
+			productReference = 29D4271F19FEAE2D00B235A3 /* BlueWave.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29D4273A19FEAE2D00B235A3 /* BlueWaveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29D4274819FEAE2D00B235A3 /* Build configuration list for PBXNativeTarget "BlueWaveTests" */;
+			buildPhases = (
+				29D4273719FEAE2D00B235A3 /* Sources */,
+				29D4273819FEAE2D00B235A3 /* Frameworks */,
+				29D4273919FEAE2D00B235A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29D4273D19FEAE2D00B235A3 /* PBXTargetDependency */,
+			);
+			name = BlueWaveTests;
+			productName = BlueWaveTests;
+			productReference = 29D4273B19FEAE2D00B235A3 /* BlueWaveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29D4271719FEAE2D00B235A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Rémi Hillairet";
+				TargetAttributes = {
+					29D4271E19FEAE2D00B235A3 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = RFKH8ZM9YU;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					29D4273A19FEAE2D00B235A3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 29D4271E19FEAE2D00B235A3;
+					};
+				};
+			};
+			buildConfigurationList = 29D4271A19FEAE2D00B235A3 /* Build configuration list for PBXProject "BlueWave" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29D4271619FEAE2D00B235A3;
+			productRefGroup = 29D4272019FEAE2D00B235A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29D4271E19FEAE2D00B235A3 /* BlueWave */,
+				29D4273A19FEAE2D00B235A3 /* BlueWaveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29D4271D19FEAE2D00B235A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D4273119FEAE2D00B235A3 /* Main.storyboard in Resources */,
+				29D4273619FEAE2D00B235A3 /* LaunchScreen.xib in Resources */,
+				29D4273319FEAE2D00B235A3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29D4273919FEAE2D00B235A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EF287C53CDEB31481FA12C9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B6AB7687EEEB0BBF33A8F4C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29D4271B19FEAE2D00B235A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292AB25F1A07F2C8003BBFBB /* CJSONDeserializer.m in Sources */,
+				292AB2611A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m in Sources */,
+				29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */,
+				29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */,
+				292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */,
+				29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */,
+				292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */,
+				29D3E0981A0129D8009F9EEA /* SettingsViewController.m in Sources */,
+				2995287D1A01629E00987C45 /* LocalData.m in Sources */,
+				29D4272519FEAE2D00B235A3 /* main.m in Sources */,
+				29D3E0961A0129D8009F9EEA /* HistoryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29D4273719FEAE2D00B235A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D4274219FEAE2D00B235A3 /* BlueWaveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		29D4273D19FEAE2D00B235A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29D4271E19FEAE2D00B235A3 /* BlueWave */;
+			targetProxy = 29D4273C19FEAE2D00B235A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		29D4272F19FEAE2D00B235A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29D4273019FEAE2D00B235A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29D4273519FEAE2D00B235A3 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29D4274319FEAE2D00B235A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		29D4274419FEAE2D00B235A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29D4274619FEAE2D00B235A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58C1EAEEEF38BB483224BD3A /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = BlueWave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		29D4274719FEAE2D00B235A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B1736C59722BB8C23175760 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = BlueWave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		29D4274919FEAE2D00B235A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlueWaveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlueWave.app/BlueWave";
+			};
+			name = Debug;
+		};
+		29D4274A19FEAE2D00B235A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlueWaveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlueWave.app/BlueWave";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29D4271A19FEAE2D00B235A3 /* Build configuration list for PBXProject "BlueWave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29D4274319FEAE2D00B235A3 /* Debug */,
+				29D4274419FEAE2D00B235A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29D4274519FEAE2D00B235A3 /* Build configuration list for PBXNativeTarget "BlueWave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29D4274619FEAE2D00B235A3 /* Debug */,
+				29D4274719FEAE2D00B235A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29D4274819FEAE2D00B235A3 /* Build configuration list for PBXNativeTarget "BlueWaveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29D4274919FEAE2D00B235A3 /* Debug */,
+				29D4274A19FEAE2D00B235A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29D4271719FEAE2D00B235A3 /* Project object */;
+}
