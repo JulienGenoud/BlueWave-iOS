@@ -62,19 +62,25 @@
     NSLog(@"API -- Call server for new beacon");
     [[LocalData sharedClient] getNewBeaconsWithLocationManager:self.locationManager completion:^(BOOL finished) {
         if (finished) {
-            NSArray *beacons = [[LocalData sharedClient] getAllBeacons];
+            //NSArray *beacons = [[LocalData sharedClient] getAllBeacons];
             
-            for (NSDictionary *beacon in beacons) {
-                CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[beacon objectForKey:@"uuid"]]
-                                                                                       major:(long)[[beacon objectForKey:@"major"] integerValue]
-                                                                                       minor:(long)[[beacon objectForKey:@"minor"] integerValue]
-                                                                                  identifier:[NSString stringWithFormat:@"%ld", (long)[[beacon objectForKey:@"beacon_id"] integerValue]]];
-                beaconRegion.notifyEntryStateOnDisplay = YES;
-                beaconRegion.notifyOnEntry = YES;
-                beaconRegion.notifyOnExit = YES;
-                [self.locationManager startMonitoringForRegion:beaconRegion];
-                [self.locationManager startRangingBeaconsInRegion:beaconRegion];
-            }
+//            for (NSDictionary *beacon in beacons) {
+//                CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[beacon objectForKey:@"uuid"]]
+//                                                                                       major:(long)[[beacon objectForKey:@"major"] integerValue]
+//                                                                                       minor:(long)[[beacon objectForKey:@"minor"] integerValue]
+//                                                                                  identifier:[NSString stringWithFormat:@"%ld", (long)[[beacon objectForKey:@"beacon_id"] integerValue]]];
+//                beaconRegion.notifyEntryStateOnDisplay = YES;
+//                beaconRegion.notifyOnEntry = YES;
+//                beaconRegion.notifyOnExit = YES;
+//                [self.locationManager startMonitoringForRegion:beaconRegion];
+//                [self.locationManager startRangingBeaconsInRegion:beaconRegion];
+//            }
+            CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] identifier:@"toto"];
+            beaconRegion.notifyEntryStateOnDisplay = YES;
+            beaconRegion.notifyOnEntry = YES;
+            beaconRegion.notifyOnExit = YES;
+            [self.locationManager startMonitoringForRegion:beaconRegion];
+            [self.locationManager startRangingBeaconsInRegion:beaconRegion];
         }
     }];
 }
