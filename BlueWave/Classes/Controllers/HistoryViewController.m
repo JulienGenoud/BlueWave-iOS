@@ -22,13 +22,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
+    
     _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 64.0)];
     [_historyTableView setDelegate:self];
     [_historyTableView setDataSource:self];
     [_historyTableView setRowHeight:60.0f];
+    [_historyTableView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_historyTableView];
     
-    _historyCategoriesTitles = [NSArray arrayWithObjects:@"Tous", @"Non vus", @"Favoris", nil];
+    _historyCategoriesTitles = [NSArray arrayWithObjects:@"Tous", @"Non vus", @"Favoris", @"Promotions", nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,6 +44,10 @@
     UITableViewCell *historyCell = [tableView dequeueReusableCellWithIdentifier:identifierCell];
     if (!historyCell) {
         historyCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierCell];
+        historyCell.backgroundColor = [UIColor clearColor];
+        historyCell.textLabel.textColor = [UIColor whiteColor];
+        historyCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        historyCell.selectionStyle = UITableViewCellSelectionStyleNone;
         [historyCell.textLabel setText:[_historyCategoriesTitles objectAtIndex:indexPath.row]];
     }
     

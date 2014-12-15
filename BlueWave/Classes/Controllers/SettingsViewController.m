@@ -22,18 +22,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
+    
     UITableView *settingsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT) style:UITableViewStyleGrouped];
     [settingsTableView setDelegate:self];
     [settingsTableView setDataSource:self];
     [settingsTableView setRowHeight:60.0f];
     [settingsTableView setAllowsSelection:NO];
     [settingsTableView setScrollEnabled:NO];
+    [settingsTableView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:settingsTableView];
     
     // Settings Button
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [settingsButton setFrame:CGRectMake(0, 0, 100, 50)];
-    [settingsButton setTitle:@"Settings" forState:UIControlStateNormal];
+    [settingsButton setTitle:@"Bluewave settings" forState:UIControlStateNormal];
     [settingsButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton sizeToFit];
     [settingsButton setCenter:CGPointMake(VIEW_WIDTH / 2, VIEW_HEIGHT / 2)];
@@ -53,6 +56,7 @@
     
     if (!settingsCell) {
         settingsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        settingsCell.backgroundColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
         settingsCell.textLabel.text = @"Recevoir des notifications";
         
         _notificationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];

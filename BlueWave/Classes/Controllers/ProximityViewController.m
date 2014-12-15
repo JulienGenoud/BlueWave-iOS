@@ -18,9 +18,10 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property (strong, nonatomic) UIImageView *loaderView;
-@property (strong, nonatomic) UITableView *beaconsTableView;
 @property (strong, nonatomic) NSMutableArray *beaconsTableViewData;
 @property (strong, nonatomic) UITextView *beaconInfosView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UITableView *beaconsTableView;
 
 @end
 
@@ -32,20 +33,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _beaconsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - 64.0)];
-    [_beaconsTableView setDelegate:self];
-    [_beaconsTableView setDataSource:self];
-    [_beaconsTableView setRowHeight:60.0f];
-    [_beaconsTableView setHidden:YES];
-    [self.view addSubview:_beaconsTableView];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
     
-    NSArray *imagesArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"loader-scan-1"], [UIImage imageNamed:@"loader-scan-2"], [UIImage imageNamed:@"loader-scan-3"], [UIImage imageNamed:@"loader-scan-4"], [UIImage imageNamed:@"loader-scan-5"], [UIImage imageNamed:@"loader-scan-6"], [UIImage imageNamed:@"loader-scan-7"], nil];
-    _loaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-    [_loaderView setCenter:CGPointMake(VIEW_WIDTH / 2, VIEW_HEIGHT / 2)];
-    [_loaderView setAnimationImages:imagesArray];
-    [_loaderView setAnimationDuration:3.0];
-    [_loaderView startAnimating];
-    [self.view addSubview:_loaderView];
+    [_beaconsTableView setHidden:YES];
+    [_beaconsTableView setBackgroundColor:[UIColor clearColor]];
+    [_beaconsTableView setRowHeight:80.0];
+    
+//    NSArray *imagesArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"loader-scan-1"], [UIImage imageNamed:@"loader-scan-2"], [UIImage imageNamed:@"loader-scan-3"], [UIImage imageNamed:@"loader-scan-4"], [UIImage imageNamed:@"loader-scan-5"], [UIImage imageNamed:@"loader-scan-6"], [UIImage imageNamed:@"loader-scan-7"], nil];
+//    _loaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+//    [_loaderView setCenter:CGPointMake(VIEW_WIDTH / 2, VIEW_HEIGHT / 2)];
+//    [_loaderView setAnimationImages:imagesArray];
+//    [_loaderView setAnimationDuration:3.0];
+//    [_loaderView startAnimating];
+//    [self.view addSubview:_loaderView];
     
     _beaconsTableViewData = [[NSMutableArray alloc] init];
     
@@ -56,25 +59,10 @@
     if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestAlwaysAuthorization];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
+    
     NSLog(@"API -- Call server for new beacon");
     [[LocalData sharedClient] getNewBeaconsWithLocationManager:self.locationManager completion:^(BOOL finished) {
         if (finished) {
-            //NSArray *beacons = [[LocalData sharedClient] getAllBeacons];
-            
-//            for (NSDictionary *beacon in beacons) {
-//                CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[beacon objectForKey:@"uuid"]]
-//                                                                                       major:(long)[[beacon objectForKey:@"major"] integerValue]
-//                                                                                       minor:(long)[[beacon objectForKey:@"minor"] integerValue]
-//                                                                                  identifier:[NSString stringWithFormat:@"%ld", (long)[[beacon objectForKey:@"beacon_id"] integerValue]]];
-//                beaconRegion.notifyEntryStateOnDisplay = YES;
-//                beaconRegion.notifyOnEntry = YES;
-//                beaconRegion.notifyOnExit = YES;
-//                [self.locationManager startMonitoringForRegion:beaconRegion];
-//                [self.locationManager startRangingBeaconsInRegion:beaconRegion];
-//            }
             CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] identifier:@"toto"];
             beaconRegion.notifyEntryStateOnDisplay = YES;
             beaconRegion.notifyOnEntry = YES;
@@ -86,8 +74,9 @@
 }
 
 - (void)displayBeacon:(BeaconItem*)item {
-    [_loaderView stopAnimating];
-    [_loaderView removeFromSuperview];
+    //[_loaderView stopAnimating];
+    //[_loaderView removeFromSuperview];
+    self.iconView.hidden = TRUE;
     
     BOOL containsItem = NO;
     for (BeaconItem *testItem in _beaconsTableViewData) {
@@ -159,6 +148,11 @@
     
     cell.textLabel.text = item.notification;
     cell.detailTextLabel.text = item.uuid.UUIDString;
+    [cell setBackgroundColor:[UIColor clearColor]];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
