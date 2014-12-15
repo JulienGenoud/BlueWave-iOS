@@ -25,6 +25,7 @@
 		29D4273319FEAE2D00B235A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273219FEAE2D00B235A3 /* Images.xcassets */; };
 		29D4273619FEAE2D00B235A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */; };
 		29D4274219FEAE2D00B235A3 /* BlueWaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */; };
+		29E521A11A3F6129002CD7C3 /* HistoryDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */; };
 		A3575B4777B694EE57788C92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		29D4273B19FEAE2D00B235A3 /* BlueWaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueWaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D4274019FEAE2D00B235A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueWaveTests.m; sourceTree = "<group>"; };
+		29E5219F1A3F6129002CD7C3 /* HistoryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsViewController.h; sourceTree = "<group>"; };
+		29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsViewController.m; sourceTree = "<group>"; };
 		58C1EAEEEF38BB483224BD3A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1736C59722BB8C23175760 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 			children = (
 				29D3E0901A0129D8009F9EEA /* HistoryViewController.h */,
 				29D3E0911A0129D8009F9EEA /* HistoryViewController.m */,
+				29E5219F1A3F6129002CD7C3 /* HistoryDetailsViewController.h */,
+				29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */,
 				29D3E0921A0129D8009F9EEA /* ProximityViewController.h */,
 				29D3E0931A0129D8009F9EEA /* ProximityViewController.m */,
 				29D3E0941A0129D8009F9EEA /* SettingsViewController.h */,
@@ -410,6 +415,7 @@
 				29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */,
 				293EC2D71A264A8800B4840E /* DetailsViewController.m in Sources */,
 				29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */,
+				29E521A11A3F6129002CD7C3 /* HistoryDetailsViewController.m in Sources */,
 				292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */,
 				29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */,
 				292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */,

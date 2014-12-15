@@ -63,7 +63,7 @@
     NSLog(@"API -- Call server for new beacon");
     [[LocalData sharedClient] getNewBeaconsWithLocationManager:self.locationManager completion:^(BOOL finished) {
         if (finished) {
-            CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] identifier:@"toto"];
+            CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] major:1 minor:11 identifier:@"toto"];
             beaconRegion.notifyEntryStateOnDisplay = YES;
             beaconRegion.notifyOnEntry = YES;
             beaconRegion.notifyOnExit = YES;

@@ -9,7 +9,9 @@
 #import "SettingsViewController.h"
 #import "Define.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () {
+    NSArray *totoArray;
+}
 
 @property (nonatomic, strong) UISwitch *notificationSwitch;
 @property (nonatomic, strong) NSUserDefaults *prefs;
@@ -40,13 +42,21 @@
     [settingsButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton sizeToFit];
     [settingsButton setCenter:CGPointMake(VIEW_WIDTH / 2, VIEW_HEIGHT / 2)];
-    [self.view addSubview:settingsButton];
+    //[self.view addSubview:settingsButton];
     
     _prefs = [NSUserDefaults standardUserDefaults];
+    
+    totoArray = @[@"Promotions", @"Avantages clients", @"Oeuvres d'art"];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0)
+        return 1;
+    return 3;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,14 +67,19 @@
     if (!settingsCell) {
         settingsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         settingsCell.backgroundColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
-        settingsCell.textLabel.text = @"Recevoir des notifications";
         
-        _notificationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];
-        
-        
-        [_notificationSwitch setOn:[[_prefs objectForKey:SETTINGS_NOTIFICATIONS] boolValue]];
-        [_notificationSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-        [settingsCell addSubview:_notificationSwitch];
+        if (indexPath.section == 0) {
+            _notificationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];
+            [_notificationSwitch setOn:[[_prefs objectForKey:SETTINGS_NOTIFICATIONS] boolValue]];
+            [settingsCell addSubview:_notificationSwitch];
+            [_notificationSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+            settingsCell.textLabel.text = @"Recevoir des notifications";
+        } else {
+            UISwitch *totoSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];
+            [totoSwitch setOn:YES];
+            [settingsCell addSubview:totoSwitch];
+            settingsCell.textLabel.text = [totoArray objectAtIndex:indexPath.row];
+        }
     }
     
     return settingsCell;
