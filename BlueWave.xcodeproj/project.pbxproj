@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29035F421A9C96F300502114 /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 290B42D71A9C89D00062F88C /* DINPro-Black.otf */; };
+		29035F431A9C96F500502114 /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 290B42D81A9C89D70062F88C /* DINPro-Medium.otf */; };
+		29035F441A9C96F700502114 /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 290B42D91A9C89DD0062F88C /* DINPro-Regular.otf */; };
+		29035F491A9CD06F00502114 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29035F471A9CD06F00502114 /* Main.storyboard */; };
 		292AB25F1A07F2C8003BBFBB /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB2591A07F2C8003BBFBB /* CJSONDeserializer.m */; };
 		292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB25B1A07F2C8003BBFBB /* CJSONSerializer.m */; };
 		292AB2611A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB25E1A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m */; };
@@ -14,18 +18,20 @@
 		292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 292AB2711A094B08003BBFBB /* SQLiteManager.m */; };
 		29385EA21A00FDDD00CBC9F9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */; };
 		293EC2D71A264A8800B4840E /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293EC2D61A264A8800B4840E /* DetailsViewController.m */; };
+		2954DB251AA4725B00477B43 /* HistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2954DB241AA4725B00477B43 /* HistoryCollectionViewCell.m */; };
 		2995287D1A01629E00987C45 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2995287C1A01629E00987C45 /* LocalData.m */; };
+		29A92F781A9B41FA00F1FED4 /* BlueWaveTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A92F771A9B41FA00F1FED4 /* BlueWaveTabBarController.m */; };
+		29A92F851A9B86DE00F1FED4 /* MHCustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A92F821A9B86DE00F1FED4 /* MHCustomTabBarController.m */; };
+		29A92F861A9B86DE00F1FED4 /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A92F841A9B86DE00F1FED4 /* MHTabBarSegue.m */; };
 		29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BBAE421A12186E008BEBBA /* BeaconItem.m */; };
 		29D3E0961A0129D8009F9EEA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0911A0129D8009F9EEA /* HistoryViewController.m */; };
 		29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0931A0129D8009F9EEA /* ProximityViewController.m */; };
 		29D3E0981A0129D8009F9EEA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E0951A0129D8009F9EEA /* SettingsViewController.m */; };
 		29D4272519FEAE2D00B235A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4272419FEAE2D00B235A3 /* main.m */; };
 		29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4272719FEAE2D00B235A3 /* AppDelegate.m */; };
-		29D4273119FEAE2D00B235A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4272F19FEAE2D00B235A3 /* Main.storyboard */; };
 		29D4273319FEAE2D00B235A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273219FEAE2D00B235A3 /* Images.xcassets */; };
 		29D4273619FEAE2D00B235A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */; };
 		29D4274219FEAE2D00B235A3 /* BlueWaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */; };
-		29E521A11A3F6129002CD7C3 /* HistoryDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */; };
 		A3575B4777B694EE57788C92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29035F481A9CD06F00502114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		290B42D71A9C89D00062F88C /* DINPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Black.otf"; sourceTree = "<group>"; };
+		290B42D81A9C89D70062F88C /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
+		290B42D91A9C89DD0062F88C /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
 		292AB2581A07F2C8003BBFBB /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONDeserializer.h; path = Libraries/TouchJSON/CJSONDeserializer.h; sourceTree = "<group>"; };
 		292AB2591A07F2C8003BBFBB /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CJSONDeserializer.m; path = Libraries/TouchJSON/CJSONDeserializer.m; sourceTree = "<group>"; };
 		292AB25A1A07F2C8003BBFBB /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CJSONSerializer.h; path = Libraries/TouchJSON/CJSONSerializer.h; sourceTree = "<group>"; };
@@ -53,8 +63,16 @@
 		29385EA11A00FDDD00CBC9F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		293EC2D51A264A8800B4840E /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		293EC2D61A264A8800B4840E /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		2954DB231AA4725B00477B43 /* HistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionViewCell.h; sourceTree = "<group>"; };
+		2954DB241AA4725B00477B43 /* HistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewCell.m; sourceTree = "<group>"; };
 		2995287B1A01629E00987C45 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalData.h; path = Classes/Models/LocalData.h; sourceTree = "<group>"; };
 		2995287C1A01629E00987C45 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalData.m; path = Classes/Models/LocalData.m; sourceTree = "<group>"; };
+		29A92F761A9B41FA00F1FED4 /* BlueWaveTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueWaveTabBarController.h; sourceTree = "<group>"; };
+		29A92F771A9B41FA00F1FED4 /* BlueWaveTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueWaveTabBarController.m; sourceTree = "<group>"; };
+		29A92F811A9B86DE00F1FED4 /* MHCustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHCustomTabBarController.h; path = Libraries/MHCustomTabBarController/MHCustomTabBarController.h; sourceTree = "<group>"; };
+		29A92F821A9B86DE00F1FED4 /* MHCustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHCustomTabBarController.m; path = Libraries/MHCustomTabBarController/MHCustomTabBarController.m; sourceTree = "<group>"; };
+		29A92F831A9B86DE00F1FED4 /* MHTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHTabBarSegue.h; path = Libraries/MHCustomTabBarController/MHTabBarSegue.h; sourceTree = "<group>"; };
+		29A92F841A9B86DE00F1FED4 /* MHTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHTabBarSegue.m; path = Libraries/MHCustomTabBarController/MHTabBarSegue.m; sourceTree = "<group>"; };
 		29AD68C119FFDA9400A591E4 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		29BBAE411A12186E008BEBBA /* BeaconItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconItem.h; path = Classes/Models/BeaconItem.h; sourceTree = "<group>"; };
 		29BBAE421A12186E008BEBBA /* BeaconItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconItem.m; path = Classes/Models/BeaconItem.m; sourceTree = "<group>"; };
@@ -69,14 +87,11 @@
 		29D4272419FEAE2D00B235A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29D4272619FEAE2D00B235A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		29D4272719FEAE2D00B235A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		29D4273019FEAE2D00B235A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29D4273219FEAE2D00B235A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D4273519FEAE2D00B235A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		29D4273B19FEAE2D00B235A3 /* BlueWaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueWaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D4274019FEAE2D00B235A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D4274119FEAE2D00B235A3 /* BlueWaveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueWaveTests.m; sourceTree = "<group>"; };
-		29E5219F1A3F6129002CD7C3 /* HistoryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsViewController.h; sourceTree = "<group>"; };
-		29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsViewController.m; sourceTree = "<group>"; };
 		58C1EAEEEF38BB483224BD3A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5BDB1A0C1D3E2191AD3C96C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1736C59722BB8C23175760 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +127,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		290B42D61A9C89C50062F88C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				290B42D71A9C89D00062F88C /* DINPro-Black.otf */,
+				290B42D81A9C89D70062F88C /* DINPro-Medium.otf */,
+				290B42D91A9C89DD0062F88C /* DINPro-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		292AB2571A07F2AF003BBFBB /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +154,7 @@
 		292AB2681A08E4EE003BBFBB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				290B42D61A9C89C50062F88C /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -142,9 +168,30 @@
 			name = SQLiteManager;
 			sourceTree = "<group>";
 		};
+		2954DB221AA4724000477B43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2954DB231AA4725B00477B43 /* HistoryCollectionViewCell.h */,
+				2954DB241AA4725B00477B43 /* HistoryCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		29A92F801A9B86B100F1FED4 /* MHCustomTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				29A92F811A9B86DE00F1FED4 /* MHCustomTabBarController.h */,
+				29A92F821A9B86DE00F1FED4 /* MHCustomTabBarController.m */,
+				29A92F831A9B86DE00F1FED4 /* MHTabBarSegue.h */,
+				29A92F841A9B86DE00F1FED4 /* MHTabBarSegue.m */,
+			);
+			name = MHCustomTabBarController;
+			sourceTree = "<group>";
+		};
 		29D3E08B1A012934009F9EEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2954DB221AA4724000477B43 /* Views */,
 				29D3E08E1A012957009F9EEA /* Helpers */,
 				29D3E08D1A01294D009F9EEA /* Models */,
 				29D3E08C1A012945009F9EEA /* Controllers */,
@@ -157,14 +204,14 @@
 			children = (
 				29D3E0901A0129D8009F9EEA /* HistoryViewController.h */,
 				29D3E0911A0129D8009F9EEA /* HistoryViewController.m */,
-				29E5219F1A3F6129002CD7C3 /* HistoryDetailsViewController.h */,
-				29E521A01A3F6129002CD7C3 /* HistoryDetailsViewController.m */,
 				29D3E0921A0129D8009F9EEA /* ProximityViewController.h */,
 				29D3E0931A0129D8009F9EEA /* ProximityViewController.m */,
 				29D3E0941A0129D8009F9EEA /* SettingsViewController.h */,
 				29D3E0951A0129D8009F9EEA /* SettingsViewController.m */,
 				293EC2D51A264A8800B4840E /* DetailsViewController.h */,
 				293EC2D61A264A8800B4840E /* DetailsViewController.m */,
+				29A92F761A9B41FA00F1FED4 /* BlueWaveTabBarController.h */,
+				29A92F771A9B41FA00F1FED4 /* BlueWaveTabBarController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +237,7 @@
 		29D3E08F1A012961009F9EEA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29A92F801A9B86B100F1FED4 /* MHCustomTabBarController */,
 				292AB26F1A094AF6003BBFBB /* SQLiteManager */,
 				292AB2571A07F2AF003BBFBB /* TouchJSON */,
 			);
@@ -223,7 +271,7 @@
 				29D4272619FEAE2D00B235A3 /* AppDelegate.h */,
 				29D4272719FEAE2D00B235A3 /* AppDelegate.m */,
 				29AD68C119FFDA9400A591E4 /* Define.h */,
-				29D4272F19FEAE2D00B235A3 /* Main.storyboard */,
+				29035F471A9CD06F00502114 /* Main.storyboard */,
 				29D4273219FEAE2D00B235A3 /* Images.xcassets */,
 				29D4273419FEAE2D00B235A3 /* LaunchScreen.xib */,
 				29D3E08B1A012934009F9EEA /* Classes */,
@@ -357,9 +405,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D4273119FEAE2D00B235A3 /* Main.storyboard in Resources */,
+				29035F441A9C96F700502114 /* DINPro-Regular.otf in Resources */,
+				29035F421A9C96F300502114 /* DINPro-Black.otf in Resources */,
 				29D4273619FEAE2D00B235A3 /* LaunchScreen.xib in Resources */,
+				29035F491A9CD06F00502114 /* Main.storyboard in Resources */,
 				29D4273319FEAE2D00B235A3 /* Images.xcassets in Resources */,
+				29035F431A9C96F500502114 /* DINPro-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,12 +461,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A92F851A9B86DE00F1FED4 /* MHCustomTabBarController.m in Sources */,
+				29A92F781A9B41FA00F1FED4 /* BlueWaveTabBarController.m in Sources */,
 				292AB25F1A07F2C8003BBFBB /* CJSONDeserializer.m in Sources */,
 				292AB2611A07F2C8003BBFBB /* NSDictionary_JSONExtensions.m in Sources */,
+				29A92F861A9B86DE00F1FED4 /* MHTabBarSegue.m in Sources */,
 				29D3E0971A0129D8009F9EEA /* ProximityViewController.m in Sources */,
 				293EC2D71A264A8800B4840E /* DetailsViewController.m in Sources */,
 				29D4272819FEAE2D00B235A3 /* AppDelegate.m in Sources */,
-				29E521A11A3F6129002CD7C3 /* HistoryDetailsViewController.m in Sources */,
 				292AB2601A07F2C8003BBFBB /* CJSONSerializer.m in Sources */,
 				29BBAE431A12186E008BEBBA /* BeaconItem.m in Sources */,
 				292AB2721A094B08003BBFBB /* SQLiteManager.m in Sources */,
@@ -423,6 +476,7 @@
 				2995287D1A01629E00987C45 /* LocalData.m in Sources */,
 				29D4272519FEAE2D00B235A3 /* main.m in Sources */,
 				29D3E0961A0129D8009F9EEA /* HistoryViewController.m in Sources */,
+				2954DB251AA4725B00477B43 /* HistoryCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,10 +499,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		29D4272F19FEAE2D00B235A3 /* Main.storyboard */ = {
+		29035F471A9CD06F00502114 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29D4273019FEAE2D00B235A3 /* Base */,
+				29035F481A9CD06F00502114 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

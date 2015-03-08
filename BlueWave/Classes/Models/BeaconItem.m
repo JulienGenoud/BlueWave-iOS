@@ -10,21 +10,23 @@
 
 @implementation BeaconItem
 
-- (instancetype)initWithBeaconID:(NSNumber*)beaconID
+- (instancetype)initWithSerial:(NSString*)serial
                             UUID:(NSUUID *)uuid
                            major:(NSNumber*)major
                            minor:(NSNumber*)minor
                     notification:(NSString*)notification
                            range:(NSNumber*)range
+                            name:(NSString*)name
 {
     self = [super init];
     if (self) {
-        _beaconID = beaconID;
+        _serial = serial;
         _uuid = uuid;
         _majorValue = major;
         _minorValue = minor;
         _notification = notification;
         _range = range;
+        _name = name;
         self.rssi = 0;
     }
     return self;

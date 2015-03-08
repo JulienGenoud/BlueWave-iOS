@@ -7,21 +7,29 @@
 //
 
 #import "ProximityViewController.h"
+#import "DetailsViewController.h"
 #import "LocalData.h"
 #import "Define.h"
 #import "BeaconItem.h"
 
 @import CoreLocation;
 
-@interface ProximityViewController () <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ProximityViewController () <CLLocationManagerDelegate> {
+    CABasicAnimation *pulseAnimation;
+    NSMutableArray *beaconItems;
+}
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property (strong, nonatomic) UIImageView *loaderView;
-@property (strong, nonatomic) NSMutableArray *beaconsTableViewData;
 @property (strong, nonatomic) UITextView *beaconInfosView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
-@property (weak, nonatomic) IBOutlet UITableView *beaconsTableView;
+@property (nonatomic) IBOutletCollection(UIView) NSArray *beaconViews;
+@property (nonatomic) IBOutletCollection(UIView) NSArray *beaconContainers;
+@property (nonatomic) IBOutletCollection(UILabel) NSArray *distanceLabels;
+@property (nonatomic) IBOutletCollection(UILabel) NSArray *serialLabels;
+@property (nonatomic) IBOutletCollection(UIButton) NSArray *beaconButtons;
+
 
 @end
 
@@ -33,24 +41,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
-    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
+    [self initBeaconViews];
     
-    [_beaconsTableView setHidden:YES];
-    [_beaconsTableView setBackgroundColor:[UIColor clearColor]];
-    [_beaconsTableView setRowHeight:80.0];
+    [self removeBeacons];
     
-//    NSArray *imagesArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"loader-scan-1"], [UIImage imageNamed:@"loader-scan-2"], [UIImage imageNamed:@"loader-scan-3"], [UIImage imageNamed:@"loader-scan-4"], [UIImage imageNamed:@"loader-scan-5"], [UIImage imageNamed:@"loader-scan-6"], [UIImage imageNamed:@"loader-scan-7"], nil];
-//    _loaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-//    [_loaderView setCenter:CGPointMake(VIEW_WIDTH / 2, VIEW_HEIGHT / 2)];
-//    [_loaderView setAnimationImages:imagesArray];
-//    [_loaderView setAnimationDuration:3.0];
-//    [_loaderView startAnimating];
-//    [self.view addSubview:_loaderView];
-    
-    _beaconsTableViewData = [[NSMutableArray alloc] init];
+    beaconItems = [[NSMutableArray alloc] init];
     
     // Location Manager
     self.locationManager = [[CLLocationManager alloc] init];
@@ -60,10 +55,18 @@
         [self.locationManager requestAlwaysAuthorization];
     }
     
+    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulseAnimation.duration = 0.5;
+    pulseAnimation.toValue = [NSNumber numberWithFloat:1.05];;
+    pulseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pulseAnimation.autoreverses = YES;
+    pulseAnimation.repeatCount = FLT_MAX;
+    
     NSLog(@"API -- Call server for new beacon");
     [[LocalData sharedClient] getNewBeaconsWithLocationManager:self.locationManager completion:^(BOOL finished) {
         if (finished) {
-            CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] major:1 minor:11 identifier:@"toto"];
+            CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] identifier:@"beacon"];
+            //CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"102B84B0-6F03-11E4-9803-0800200C9A66"] major:87 minor:23 identifier:@"toto"];
             beaconRegion.notifyEntryStateOnDisplay = YES;
             beaconRegion.notifyOnEntry = YES;
             beaconRegion.notifyOnExit = YES;
@@ -71,95 +74,110 @@
             [self.locationManager startRangingBeaconsInRegion:beaconRegion];
         }
     }];
-}
-
-- (void)displayBeacon:(BeaconItem*)item {
-    //[_loaderView stopAnimating];
-    //[_loaderView removeFromSuperview];
-    self.iconView.hidden = TRUE;
     
-    BOOL containsItem = NO;
-    for (BeaconItem *testItem in _beaconsTableViewData) {
-        if ([testItem.uuid.UUIDString isEqualToString:item.uuid.UUIDString]) {
-            containsItem = YES;
+    for (UIView *view in self.beaconContainers) {
+        if (view.layer.animationKeys.count == 0) {
+            [view.layer addAnimation:pulseAnimation forKey:@"pulse"];
         }
     }
-    if (!containsItem) {
-        [_beaconsTableViewData addObject:item];
-        _beaconsTableView.hidden = NO;
-        [_beaconsTableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    for (UIView *view in self.beaconContainers) {
+        if (view.layer.animationKeys.count == 0) {
+            [view.layer addAnimation:pulseAnimation forKey:@"pulse"];
+        }
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    for (UIView *view in self.beaconContainers) {
+        if (view.layer.animationKeys.count == 0) {
+            [view.layer addAnimation:pulseAnimation forKey:@"pulse"];
+        }
+    }
+}
+
+- (void)initBeaconViews {
+    for (UIView *view in self.beaconViews) {
+        view.layer.cornerRadius = view.frame.size.height / 2;
+        view.layer.borderWidth = 1;
+        view.layer.borderColor = [UIColor whiteColor].CGColor;
+    }
+}
+
+- (void)displayBeacons {
+    NSUInteger end = 3;
+    if (beaconItems.count < 3) {
+        end = beaconItems.count;
+    }
+    for (NSUInteger i = 0; i < end; i++) {
+        BeaconItem *item = [beaconItems objectAtIndex:i];
+        UIView *containerView = [self.beaconContainers objectAtIndex:i];
+        containerView.hidden = false;
+        UILabel *serialLabel = [self.serialLabels objectAtIndex:i];
+        serialLabel.text = item.name;
+        if (item.accuracy > 0) {
+            UILabel *distanceLabel = [self.distanceLabels objectAtIndex:i];
+            distanceLabel.text = [NSString stringWithFormat:@"(distance %.1f m)", item.accuracy];
+        }
+    }
+}
+
+- (void)removeBeacons {
+    for (UIView *view in self.beaconContainers) {
+        view.hidden = true;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DetailsViewController *dest = (DetailsViewController*)[segue destinationViewController];
+    UIButton *button = (UIButton*)sender;
+    NSUInteger index = [self.beaconButtons indexOfObject:button];
+    dest.item = [beaconItems objectAtIndex:index];
 }
 
 #pragma mark - Location delegate
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
+    //NSLog(@"Did range : %@", beacons);
+    [beaconItems removeAllObjects];
+    [self removeBeacons];
     for (CLBeacon *beacon in beacons) {
-        
         BeaconItem *item = [[LocalData sharedClient] findBeaconWithUUID:beacon.proximityUUID major:beacon.major minor:beacon.minor];
-        [self displayBeacon:item];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    NSLog(@"ENTER REGION : \n%@", region);
-    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
-    BeaconItem *item = [[LocalData sharedClient] findBeaconWithUUID:beacon.proximityUUID major:beacon.major minor:beacon.minor];
-    [self displayBeacon:item];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    NSLog(@"EXIT REGION : \n%@", region);
-    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
-    for (BeaconItem *item in _beaconsTableViewData) {
-        if ([[item.uuid UUIDString] isEqualToString:[beacon.proximityUUID UUIDString]] && item.majorValue == beacon.major && item.minorValue == beacon.minor) {
-            [_beaconsTableViewData removeObject:item];
-            break;
+        if (item != nil) {
+            item.accuracy = beacon.accuracy;
+            [beaconItems addObject:item];
         }
     }
-    [_beaconsTableView reloadData];
+    [self displayBeacons];
 }
+
+//-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+//    NSLog(@"AppDelegate ENTER REGION : \n%@", region);
+//    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
+//    NSLog(@"Beacon detected : %@", beacon);
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    if ([prefs boolForKey:SETTINGS_NOTIFICATIONS]) {
+//        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+//        localNotification.fireDate = [NSDate date];
+//        localNotification.alertBody = @"Une balise Bluewave a été détectée";
+//        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//        localNotification.soundName = UILocalNotificationDefaultSoundName;
+//        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//    }
+//}
+//
+//-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+//    NSLog(@"AppDelegate EXIT REGION : \n%@", region);
+//    
+//}
 
 #pragma mark - Location Errors
 
-- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    NSLog(@"Failed monitoring region: %@", error);
-}
-
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"Location manager failed: %@", error);
-}
-
-#pragma mark - TableView
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_beaconsTableViewData count];
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    }
-    
-    BeaconItem *item = [_beaconsTableViewData objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = item.notification;
-    cell.detailTextLabel.text = item.uuid.UUIDString;
-    [cell setBackgroundColor:[UIColor clearColor]];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    [self.navigationController pushViewController:nextView animated:YES];
 }
 
 #pragma mark - Memory

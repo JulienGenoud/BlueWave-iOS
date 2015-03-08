@@ -66,13 +66,13 @@ NSString * const kBaseURLString = @"http://api.notiwave.com";
         NSArray *beacons = [responseObject objectForKey:@"e"];
         
         // Create Table if doesn't exist
-        NSError *error = [self.manager doQuery:@"CREATE TABLE IF NOT EXISTS beacons (id INTEGER PRIMARY KEY AUTOINCREMENT, beacon_id INTEGER, uuid VARCHAR, major INTEGER, minor INTEGER, notification TEXT, range INTEGER);"];
+        NSError *error = [self.manager doQuery:@"CREATE TABLE IF NOT EXISTS beacons (id INTEGER PRIMARY KEY AUTOINCREMENT, serial VARCHAR, uuid VARCHAR, major INTEGER, minor INTEGER, notification TEXT, range INTEGER, name TEXT);"];
         if (error != nil) {
             NSLog(@"Error: %@",[error localizedDescription]);
         }
         
         for (NSArray *beacon in beacons) {
-            NSString *dbQuery = [NSString stringWithFormat:@"INSERT INTO beacons (beacon_id, uuid, major, minor, notification, range) values (\"%ld\", \"%@\", \"%ld\", \"%ld\", \"%@\", \"%ld\")", (long)[[beacon objectAtIndex:0] integerValue], [beacon objectAtIndex:1], (long)[[beacon objectAtIndex:2] integerValue], (long)[[beacon objectAtIndex:3] integerValue], [beacon objectAtIndex:4], (long)[[beacon objectAtIndex:5] integerValue]];
+            NSString *dbQuery = [NSString stringWithFormat:@"INSERT INTO beacons (serial, uuid, major, minor, notification, range, name) values (\"%@\", \"%@\", \"%ld\", \"%ld\", \"%@\", \"%ld\", \"%@\")", [beacon objectAtIndex:0], [beacon objectAtIndex:1], (long)[[beacon objectAtIndex:2] integerValue], (long)[[beacon objectAtIndex:3] integerValue], [beacon objectAtIndex:4], (long)[[beacon objectAtIndex:5] integerValue], [beacon objectAtIndex:6]];
             NSError *error;
             error = [self.manager doQuery:dbQuery];
             
@@ -100,16 +100,59 @@ NSString * const kBaseURLString = @"http://api.notiwave.com";
         NSLog(@"FIND BEACON -- %ld results found. It must have just one result !", [result count]);
     } else {
         NSDictionary *dataItem = [result objectAtIndex:0];
-        BeaconItem *beaconitem = [[BeaconItem alloc] initWithBeaconID:[dataItem objectForKey:@"beacon_id"]
+        BeaconItem *beaconitem = [[BeaconItem alloc] initWithSerial:[dataItem objectForKey:@"serial"]
                                                                  UUID:[[NSUUID alloc] initWithUUIDString:[dataItem objectForKey:@"uuid"]]
                                                                 major:[dataItem objectForKey:@"major"]
                                                                 minor:[dataItem objectForKey:@"minor"]
                                                          notification:[dataItem objectForKey:@"notification"]
-                                                                range:[dataItem objectForKey:@"range"]];
+                                                                range:[dataItem objectForKey:@"range"]
+                                                               name:[dataItem objectForKey:@"name"]];
         return beaconitem;
     }
     
     return nil;
+}
+
+- (void)loadBeaconsSeen {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *beaconsFile = [documentsDirectory stringByAppendingPathComponent:@"beacons-detected"];
+    
+    NSMutableArray *beacons = [NSKeyedUnarchiver unarchiveObjectWithFile:beaconsFile];
+    
+    if (beacons) {
+        self.allBeaconsSeen = [beacons objectAtIndex:0];
+        self.notSeenBeacons = [beacons objectAtIndex:1];
+        self.favoriteBeacons = [beacons objectAtIndex:2];
+    } else {
+        self.allBeaconsSeen = [NSMutableArray array];
+        self.notSeenBeacons = [NSMutableArray array];
+        self.favoriteBeacons = [NSMutableArray array];
+    }
+}
+
+- (void)saveBeaconsSeen {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *beaconsFile = [documentsDirectory stringByAppendingPathComponent:@"beacons-detected"];
+    
+    NSMutableArray *beacons = [NSMutableArray array];
+    [beacons addObject:self.allBeaconsSeen];
+    [beacons addObject:self.notSeenBeacons];
+    [beacons addObject:self.favoriteBeacons];
+    
+    [NSKeyedArchiver archiveRootObject:beacons toFile:beaconsFile];
+}
+
+- (void)getContentWithSerial:(NSString*)serial completion:(void (^)(BOOL success, NSArray *content))completion {
+    NSString *path = [NSString stringWithFormat:@"%@/?action=getInformation&id=%@", kBaseURLString, serial];
+    [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
+        NSLog(@"Beacon content : %@", responseObject);
+        completion(YES, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Failure : %@", error);
+        completion(NO, nil);
+    }];
 }
 
 @end

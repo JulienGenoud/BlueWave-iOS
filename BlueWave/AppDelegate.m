@@ -34,27 +34,34 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    if (![prefs objectForKey:SETTINGS_NOTIFICATIONS]) {
-        [prefs setObject:[NSNumber numberWithBool:YES] forKey:SETTINGS_NOTIFICATIONS];
+    if (![prefs boolForKey:@"alreadyLaunch"]) {
+        [prefs setBool:YES forKey:SETTINGS_NOTIFICATIONS];
+        [prefs setBool:YES forKey:@"alreadyLaunch"];
         [prefs synchronize];
     }
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 
--(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    NSLog(@"AppDelegate ENTER REGION : \n%@", region);
-    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
-    BeaconItem *item = [[LocalData sharedClient] findBeaconWithUUID:beacon.proximityUUID major:beacon.major minor:beacon.minor];
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.alertBody = item.notification;
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-}
+//-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+//    NSLog(@"AppDelegate ENTER REGION : \n%@", region);
+//    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
+//    NSLog(@"Beacon detected : %@", beacon);
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    if ([prefs boolForKey:SETTINGS_NOTIFICATIONS]) {
+//        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+//        localNotification.fireDate = [NSDate date];
+//        localNotification.alertBody = @"Une balise Bluewave a été détectée";
+//        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//        localNotification.soundName = UILocalNotificationDefaultSoundName;
+//        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//    }
+//}
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     NSLog(@"AppDelegate EXIT REGION : \n%@", region);
@@ -63,6 +70,8 @@
 
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     NSLog(@"AppDelegate Detect region");
+    CLBeaconRegion *beacon = (CLBeaconRegion*)region;
+    NSLog(@"Beacon detected : %@", beacon);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

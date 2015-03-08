@@ -24,8 +24,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
-    
     UITableView *settingsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT) style:UITableViewStyleGrouped];
     [settingsTableView setDelegate:self];
     [settingsTableView setDataSource:self];
@@ -66,17 +64,23 @@
     
     if (!settingsCell) {
         settingsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-        settingsCell.backgroundColor = [UIColor colorWithRed:0 green:0.553 blue:0.576 alpha:1];
+        settingsCell.backgroundColor = [UIColor colorWithRed:0.847 green:0.925 blue:0.922 alpha:1];
+        UIFont *font = [UIFont fontWithName:@"DINPro-Medium" size:15.0];
+        settingsCell.textLabel.font = font;
         
         if (indexPath.section == 0) {
             _notificationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];
-            [_notificationSwitch setOn:[[_prefs objectForKey:SETTINGS_NOTIFICATIONS] boolValue]];
+            [_notificationSwitch setOn:[_prefs boolForKey:SETTINGS_NOTIFICATIONS]];
+            _notificationSwitch.onTintColor = [UIColor colorWithRed:0.584 green:0.8 blue:0.788 alpha:1];
+            _notificationSwitch.tintColor = [UIColor colorWithRed:0.584 green:0.8 blue:0.788 alpha:1];
             [settingsCell addSubview:_notificationSwitch];
             [_notificationSwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
             settingsCell.textLabel.text = @"Recevoir des notifications";
         } else {
             UISwitch *totoSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(VIEW_WIDTH - 49 - ((VIEW_WIDTH * 5) / 100), (settingsCell.frame.size.height / 2) - 7, 49, 31)];
             [totoSwitch setOn:YES];
+            totoSwitch.onTintColor = [UIColor colorWithRed:0.584 green:0.8 blue:0.788 alpha:1];
+            totoSwitch.tintColor = [UIColor colorWithRed:0.584 green:0.8 blue:0.788 alpha:1];
             [settingsCell addSubview:totoSwitch];
             settingsCell.textLabel.text = [totoArray objectAtIndex:indexPath.row];
         }
@@ -87,10 +91,9 @@
 
 - (void)valueChanged:(UISwitch *)theSwitch {
     if (theSwitch.isOn) {
-        [_prefs setObject:[NSNumber numberWithBool:YES] forKey:SETTINGS_NOTIFICATIONS];
-        
+        [_prefs setBool:YES forKey:SETTINGS_NOTIFICATIONS];
     } else {
-        [_prefs setObject:[NSNumber numberWithBool:NO] forKey:SETTINGS_NOTIFICATIONS];
+        [_prefs setBool:NO forKey:SETTINGS_NOTIFICATIONS];
     }
     [_prefs synchronize];
 }

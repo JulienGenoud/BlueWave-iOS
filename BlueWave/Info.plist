@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DINPro-Regular.otf</string>
+		<string>DINPro-Medium.otf</string>
+		<string>DINPro-Black.otf</string>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>BlueWave utilise la localisation par Bluetooth Low Energy afin de vous permettre la détection des balises BlueWave</string>
 	<key>NSLocationAlwaysUsageDescription</key>

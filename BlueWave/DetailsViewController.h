@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BeaconItem.h"
 
 @interface DetailsViewController : UIViewController
+@property (strong, nonatomic) BeaconItem *item;
 
 @end
